@@ -18,7 +18,8 @@ app.get("/drinks", (req, res) => {
 
 app.get("/drinks/:id", (req, res)=>{
     const id = req.params.id
-    res.send(`${id}`)
+    const eleDrinks = drinks[id]
+    res.render("show.ejs", {eleDrinks, id})
 })
 
 app.listen(port, () => {
