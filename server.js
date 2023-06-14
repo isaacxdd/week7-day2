@@ -13,14 +13,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/drinks", (req, res) => {
-    res.render("index.ejs", { drinks: drinks });
+    res.render("index.ejs", {drinks});
 });
 
 app.get("/drinks/:id", (req, res)=>{
-    const id = req.params.id
-    const eleDrinks = drinks[id]
-    res.render("show.ejs", {eleDrinks, id})
-})
+    const id = req.params.id;
+    const drink = drinks[id];
+    // res.send(req.params.id)
+    res.render("show.ejs", {drink});
+});
 
 app.listen(port, () => {
     console.log(`This ${port} port is working`);
